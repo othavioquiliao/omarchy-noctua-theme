@@ -23,6 +23,8 @@ omarchy-theme-install https://github.com/othavioquiliao/omarchy-noctua-theme
 - System tools: btop (`btop.theme`), cava (`cava_theme`), mako (`mako.ini`), SwayOSD (`swayosd.css`)
 - Extras: Steam (`steam.css`), Vencord (`vencord.theme.css`), icons pointer (`icons.theme`)
 - Aether and Zed theme overrides (`aether.override.css`, `aether.zed.json`)
+- bat syntax theme (`bat/Noctua.tmTheme`, opt-in)
+- VSCode token refinements (`vscode.settings.snippet.jsonc`, opt-in)
 
 ## Palette
 
@@ -30,7 +32,24 @@ Noctua keeps the One Dark Pro syntax family while moving the desktop base to `#2
 
 ## Neovim note
 
-`neovim.lua` installs `olimorris/onedarkpro.nvim` and sets LazyVim to the `onedark` colorscheme with the Noctua background override.
+`neovim.lua` installs `olimorris/onedarkpro.nvim` and sets LazyVim to the `onedark` colorscheme with the Noctua background override. Comments are lifted to `#6c7380` for legibility, keywords are italic, and functions/types are bold.
+
+## VSCode customization (opt-in)
+
+`vscode.json` only carries the One Dark Pro extension reference because Omarchy's `omarchy-theme-set-vscode` ignores anything else. To get the same italic comments, italic keywords, and bold functions/types as Zed and Neovim, merge `vscode.settings.snippet.jsonc` into `~/.config/Code/User/settings.json` (also works for VSCodium / Cursor under their respective config paths). The block is scoped to `[One Dark Pro]` so it only fires when Noctua is active.
+
+## bat customization (opt-in)
+
+bat does not read theme files from Omarchy. Install the bundled tmTheme manually:
+
+```bash
+mkdir -p "$(bat --config-dir)/themes"
+cp bat/Noctua.tmTheme "$(bat --config-dir)/themes/"
+bat cache --build
+echo '--theme="Noctua"' >> "$(bat --config-dir)/config"
+```
+
+Verify with `bat --list-themes | grep Noctua`.
 
 ## Wallpapers
 
