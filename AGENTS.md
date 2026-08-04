@@ -1,14 +1,17 @@
 # Repository Guidelines
 
 ## Project Structure & Module Organization
-- Root files are per-app theme configs (e.g., `hyprland.conf`, `waybar.css`, `kitty.conf`, `alacritty.toml`).
-- `backgrounds/` contains the bundled wallpapers used by the theme.
+- Root files are per-app theme configs (e.g., `hyprland.conf`, `waybar.css`, `gtk.css`, `colors.toml`).
+- Terminal colors come from `colors.toml`; Omarchy generates the per-terminal configs from it.
+- `backgrounds/` contains the bundled wallpapers used by the theme. Omarchy scans this directory and treats every image in it as a selectable wallpaper — never put non-wallpaper assets here.
 - `waybar-theme/` holds a JSONC + CSS pair for Waybar variants.
+- `.github/assets/` holds README-only assets (palette SVG, wallpaper thumbnails).
+- `scripts/` holds the palette generator and the README integrity checker.
 - `preview.png` is the visual snapshot used in the README.
 
 ## Build, Test, and Development Commands
 This repo is configuration-only; there is no build system or automated test runner.
-- Install the theme with Omarchy: `omarchy-theme-install https://github.com/othavioquiliao/omarchy-noctua-theme`.
+- Install the theme with Omarchy: `omarchy-theme-install https://github.com/othavi0/omarchy-noctua-theme`.
 - For local iteration, edit files in place and reload the target app (e.g., restart Waybar or reload Hyprland).
 
 ## Coding Style & Naming Conventions
@@ -18,7 +21,9 @@ This repo is configuration-only; there is no build system or automated test runn
 - Keep filenames descriptive and lowercase, especially for wallpapers in `backgrounds/`.
 
 ## Testing Guidelines
-- No automated tests are defined.
+- Run `python3 scripts/check_readme.py` after touching the README or renaming any asset; it fails if a referenced path is missing or a theme file is undocumented.
+- Regenerate the palette with `python3 scripts/gen_palette.py` after changing `colors.toml`.
+- No other automated tests are defined.
 - Verify changes visually in the target app and update `preview.png` when the UI changes.
 - For Neovim, confirm `olimorris/onedarkpro.nvim` loads and keeps the `#242424` background override.
 
