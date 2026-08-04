@@ -1,0 +1,33 @@
+# Noctua theme for herdr (https://github.com/herdrdev/herdr)
+#
+# herdr is not themed by Omarchy, so this file is opt-in: merge the blocks
+# below into ~/.config/herdr/config.toml, then run `herdr server reload-config`
+# (the server keeps the old config in memory; restarting the client is not
+# enough).
+#
+# The base is herdr's built-in `one-dark`, whose eight accent colors already
+# match Noctua exactly. Only surfaces and text hierarchy are overridden.
+#
+# Do not use `name = "terminal"` with this theme: it maps `text` to the
+# terminal foreground and `subtext0` to ANSI 7, which are both #abb2bf in
+# Noctua, so inactive sidebar labels render identically to the active one.
+
+[theme]
+name = "one-dark"
+auto_switch = false
+
+[theme.custom]
+panel_bg    = "#242424"  # Noctua background (one-dark ships #282c34)
+surface0    = "#2e2e2e"  # selected rows (one-dark ships #2c313a)
+surface1    = "#3a3a3a"  # hover / active states
+
+# surface_dim paints the active item's background AND the sidebar separators
+# with the same value, so it cannot be blue on the line and grey on the fill.
+# This is a muted blue-grey: it reads as color on a 1px rule and stays sober
+# behind the selected row.
+surface_dim = "#3a4a5c"
+
+# Text hierarchy, measured against #242424:
+text     = "#dce0e8"  # active item          11.73:1
+subtext0 = "#d0d4db"  # inactive space title 10.44:1
+overlay0 = "#848c99"  # sub-labels            4.58:1 — last step still WCAG AA

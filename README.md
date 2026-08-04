@@ -30,6 +30,7 @@ Noctua keeps the One Dark Pro syntax family while moving the desktop base to `#2
 - Extras: Steam (`steam.css`), Vencord (`vencord.theme.css`), icons pointer (`icons.theme`)
 - Editors: Neovim colorscheme (`neovim.lua`), Aether and Zed overrides (`aether.override.css`, `aether.zed.json`)
 - bat syntax theme (`bat/Noctua.tmTheme`, opt-in)
+- herdr TUI colors (`herdr.toml`, opt-in)
 - VSCode theme reference (`vscode.json`) and token refinements (`vscode.settings.snippet.jsonc`, opt-in)
 
 ## Wallpapers
