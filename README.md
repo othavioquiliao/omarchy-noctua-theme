@@ -28,7 +28,7 @@ Noctua keeps the One Dark Pro syntax family while moving the desktop base to `#2
 - Apps/UI: GTK (`gtk.css`), Chromium (`chromium.theme`), Firefox (`firefox.css`), Wofi (`wofi.css`), Walker (`walker.css`)
 - System tools: btop (`btop.theme`), cava (`cava_theme`), mako (`mako.ini`), SwayOSD (`swayosd.css`)
 - Extras: Steam (`steam.css`), Vencord (`vencord.theme.css`), icons pointer (`icons.theme`)
-- Aether and Zed theme overrides (`aether.override.css`, `aether.zed.json`)
+- Editors: Neovim colorscheme (`neovim.lua`), Aether and Zed overrides (`aether.override.css`, `aether.zed.json`)
 - bat syntax theme (`bat/Noctua.tmTheme`, opt-in)
 - VSCode theme reference (`vscode.json`) and token refinements (`vscode.settings.snippet.jsonc`, opt-in)
 
@@ -41,29 +41,3 @@ Click any thumbnail for the full-resolution file.
 | [![City skyline at dusk](.github/assets/00-city-dusk.jpg)](backgrounds/00-city-dusk.jpg) | [![Close view of the moon](.github/assets/01-lunar-arc.jpg)](backgrounds/01-lunar-arc.jpg) | [![Snow-capped mountain ridge](.github/assets/02-alpine-ridge.jpg)](backgrounds/02-alpine-ridge.jpg) |
 | `00-city-dusk.jpg` | `01-lunar-arc.jpg` | `02-alpine-ridge.jpg` |
 
-## Neovim note
-
-`neovim.lua` installs `olimorris/onedarkpro.nvim` and sets LazyVim to the `onedark` colorscheme with the Noctua background override. Comments are lifted to `#6c7380` for legibility, keywords are italic, and functions/types are bold.
-
-## VSCode customization (opt-in)
-
-`vscode.json` only carries the One Dark Pro extension reference because Omarchy's `omarchy-theme-set-vscode` ignores anything else. To get the same italic comments, italic keywords, and bold functions/types as Zed and Neovim, merge `vscode.settings.snippet.jsonc` into `~/.config/Code/User/settings.json` (also works for VSCodium / Cursor under their respective config paths). The block is scoped to `[One Dark Pro]` so it only fires when Noctua is active.
-
-## bat customization (opt-in)
-
-bat does not read theme files from Omarchy. Install the bundled tmTheme manually:
-
-```bash
-mkdir -p "$(bat --config-dir)/themes"
-cp bat/Noctua.tmTheme "$(bat --config-dir)/themes/"
-bat cache --build
-echo '--theme="Noctua"' >> "$(bat --config-dir)/config"
-```
-
-Verify with `bat --list-themes | grep Noctua`.
-
-## Attribution
-
-- Color base: One Dark Pro by Binaryify: <https://github.com/Binaryify/OneDark-Pro>
-- Neovim theme integration: onedarkpro.nvim by olimorris: <https://github.com/olimorris/onedarkpro.nvim>
-- Waybar modified from HANCORE-Linux's waybar themes: <https://github.com/HANCORE-linux/waybar-themes>
