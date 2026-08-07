@@ -12,6 +12,17 @@ Use the Omarchy theme installer:
 omarchy-theme-install https://github.com/othavi0/omarchy-noctua-theme
 ```
 
+### herdr (opt-in)
+
+Omarchy does not theme [herdr](https://github.com/herdrdev/herdr), so its colors are not applied by the installer. To keep herdr in sync automatically, install the bundled Omarchy hook once:
+
+```bash
+mkdir -p ~/.config/omarchy/hooks/theme-set.d
+cp ~/.config/omarchy/themes/noctua/herdr.hook.sh ~/.config/omarchy/hooks/theme-set.d/herdr
+```
+
+On every theme change the hook applies the theme's `herdr.toml` when it ships one, and falls back to herdr's `terminal` theme otherwise. It never overwrites a hand-edited `[theme]` block. Prefer manual setup? Follow the merge notes inside `herdr.toml`.
+
 ## Palette
 
 Noctua keeps the One Dark Pro syntax family while moving the desktop base to `#242424`. The primary Omarchy accent is `#61afef`.
@@ -30,7 +41,7 @@ Noctua keeps the One Dark Pro syntax family while moving the desktop base to `#2
 - Extras: Steam (`steam.css`), Vencord (`vencord.theme.css`), icons pointer (`icons.theme`)
 - Editors: Neovim colorscheme (`neovim.lua`), Aether and Zed overrides (`aether.override.css`, `aether.zed.json`)
 - bat syntax theme (`bat/Noctua.tmTheme`, opt-in)
-- herdr TUI colors (`herdr.toml`, opt-in)
+- herdr TUI colors (`herdr.toml`) with an auto-apply hook (`herdr.hook.sh`, opt-in)
 - VSCode theme reference (`vscode.json`) and token refinements (`vscode.settings.snippet.jsonc`, opt-in)
 
 ## Wallpapers

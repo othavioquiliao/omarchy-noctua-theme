@@ -1,9 +1,10 @@
 # Noctua theme for herdr (https://github.com/herdrdev/herdr)
 #
-# herdr is not themed by Omarchy, so this file is opt-in: merge the blocks
-# below into ~/.config/herdr/config.toml, then run `herdr server reload-config`
-# (the server keeps the old config in memory; restarting the client is not
-# enough).
+# herdr is not themed by Omarchy, so this file is opt-in. Either install the
+# bundled hook (see herdr.hook.sh) to keep herdr in sync on every theme
+# change, or merge the blocks below into ~/.config/herdr/config.toml by hand
+# and run `herdr server reload-config` (the server keeps the old config in
+# memory; restarting the client is not enough).
 #
 # The base is herdr's built-in `one-dark`, whose eight accent colors already
 # match Noctua exactly. Only surfaces and text hierarchy are overridden.
@@ -33,5 +34,6 @@ surface_dim = "#3a4a5c"
 text     = "#ffffff"  # active item title,    9.08:1 over #3a4a5c
 overlay1 = "#c5ccd8"  # active item sub-label, 5.62:1 over #3a4a5c
 subtext0 = "#d0d4db"  # inactive space title, 10.44:1 over #242424
-overlay0 = "#848c99"  # inactive sub-labels,   4.58:1 over #242424 (last step
-                      # still meeting WCAG AA; the next tone down is 4.11:1)
+# overlay0 is the last step still meeting WCAG AA over #242424; the next tone
+# down would be 4.11:1.
+overlay0 = "#848c99"  # inactive sub-labels,   4.58:1 over #242424
